@@ -17,5 +17,52 @@
     <div class="container">
       <h1 class="title">Hello Alone!</h1>
     </div>
+
+    <button id="installButton" hidden>Install App</button>
+
+    <!-- Scripts -->
+    <script>
+        let deferredPrompt;
+        const installButton = document.getElementById('installButton');
+
+        // Listen for the beforeinstallprompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.hidden = false;
+        });
+
+        // Handle the install button click
+        installButton.addEventListener('click', async () => {
+            installButton.hidden = true;
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                console.log('User accepted the install prompt');
+            } else {
+                console.log('User dismissed the install prompt');
+            }
+            deferredPrompt = null;
+        });
+
+        // Detect if app is already installed
+        window.addEventListener('appinstalled', () => {
+            console.log('App has been installed');
+            installButton.hidden = true;
+        });
+
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(err => {
+                        console.error('Service Worker registration failed:', err);
+                    });
+            });
+        }
+    </script>
   </body>
 </html>
