@@ -1,20 +1,28 @@
 {
-  "short_name": "AlonePWA",
-  "name": "Alone Web App",
+  "name": "AK App",
+  "short_name": "AK-App",
+  "version": "1.0.0",
+  "lang": "en-US",
+  "scope": "/",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "1f1e1e",
+  "theme_color": "1f1e1e",
+  "orientation": "portrait",
+  "categories": ["business"],
+  "description": "This AK PWA Created by Mr. Amit Kumar Alone",
   "icons": [
     {
-      "src": "icon144.png",
+      "src": "iconPink.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
-      "src": "icon144.png",
+      "src": "iconPink.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ],
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#4d4c4c",
-  "theme_color": "#4d4c4c"
+  ]
 }
