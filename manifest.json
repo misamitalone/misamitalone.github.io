@@ -1,0 +1,20 @@
+{
+  "short_name": "AlonePWA",
+  "name": "Alone Web App",
+  "icons": [
+    {
+      "src": "icon144.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon144.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#4d4c4c",
+  "theme_color": "#4d4c4c"
+}

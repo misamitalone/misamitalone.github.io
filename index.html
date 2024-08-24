@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Alone</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="icon144.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="icon144.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="white" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="msapplication-TileImage" content="icon144.png" />
+    <meta name="msapplication-TileColor" content="#4d4c4c" />
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <div class="header flex">
+      <div class="flex">
+        <img src="iconPink.png" alt="Logo" class="imgLogo" />
+        <label class="title">PWA</label>
+      </div>
+      <button id="installButton" hidden>Install App</button>
+    </div>
+    <div class="container">
+      <label class="titleLabel"> Apps </label>
+      <hr class="labelHR" />
+
+      <div class="appGrid">
+        <img src="iconPink.png" alt="imgApp" class="imgApp" />
+        <img src="iconPink.png" alt="imgApp" class="imgApp" />
+        <img src="iconPink.png" alt="imgApp" class="imgApp" />
+        <img src="iconPink.png" alt="imgApp" class="imgApp" />
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      let deferredPrompt;
+      const installButton = document.getElementById("installButton");
+
+      // Listen for the beforeinstallprompt event
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installButton.hidden = false;
+      });
+
+      // Handle the install button click
+      installButton.addEventListener("click", async () => {
+        installButton.hidden = true;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === "accepted") {
+          console.log("User accepted the install prompt");
+        } else {
+          console.log("User dismissed the install prompt");
+        }
+        deferredPrompt = null;
+      });
+
+      // Detect if app is already installed
+      window.addEventListener("appinstalled", () => {
+        console.log("App has been installed");
+        installButton.hidden = true;
+      });
+
+      // Register service worker
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("service-worker.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((err) => {
+              console.error("Service Worker registration failed:", err);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
