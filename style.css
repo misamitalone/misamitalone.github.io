@@ -46,20 +46,6 @@ body {
   border-top-right-radius: 15px;
 }
 
-.title {
-  font-size: 25px;
-  color: var(--textColor);
-  text-shadow: 2px 3px var(--blue);
-  font-weight: bold;
-}
-
-.imgLogo {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  margin: 0px 20px;
-}
-
 .imgApp {
   width: 100%;
   border-radius: 5px;
@@ -72,10 +58,10 @@ body {
 }
 
 .titleLabel {
-  font-size: 20px;
+  font-size: 16px;
   background-color: var(--primaryColor);
   color: var(--textColor);
-  padding: 5px 20px;
+  padding: 4px 16px;
   position: relative;
   top: 20px;
   border: 1px solid var(--white);
@@ -102,6 +88,20 @@ body {
   width: var(--boxWidth);
   height: 65px;
   background-color: var(--primaryColor);
+}
+
+.title {
+  font-size: 25px;
+  color: var(--textColor);
+  text-shadow: 2px 3px var(--blue);
+  font-weight: bold;
+}
+
+.imgLogo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 0px 20px;
 }
 
 #installButton {
