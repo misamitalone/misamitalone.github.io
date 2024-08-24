@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="popupMsgModal" class="modal lightPink">
+      <div class="modal-Msg">
+        <div class="flex flex-col" id="msgCode_HTML"></div>
+      </div>
+    </div>
+    
     <div class="header flex">
       <div class="flex">
         <img src="iconPink.png" alt="Logo" class="imgLogo" />
@@ -26,19 +32,19 @@
       <label class="titleLabel"> Accounting </label>
       <hr class="labelHR" />
       <div class="appGrid">
-        <img src="iconPink.png" alt="imgApp" class="imgApp" />
-        <img src="iconPink.png" alt="imgApp" class="imgApp" />
-        <img src="iconPink.png" alt="imgApp" class="imgApp" />
-        <img src="iconPink.png" alt="imgApp" class="imgApp" />
+        <a href="https://misamitalone.github.io"> <img src="iconPink.png" alt="imgApp" class="imgApp" /> </a>
+        <a href="https://misamitalone.github.io"> <img src="iconPink.png" alt="imgApp" class="imgApp" /> </a>
+        <a href="https://misamitalone.github.io"> <img src="iconPink.png" alt="imgApp" class="imgApp" /> </a>
+        <a href="https://misamitalone.github.io"> <img src="iconPink.png" alt="imgApp" class="imgApp" /> </a>
       </div>
 
       <label class="titleLabel"> Calculators </label>
       <hr class="labelHR" />
       <div class="appGrid">
-        <img src="iconPink.png" alt="imgApp" class="imgApp" />
-        <img src="iconPink.png" alt="imgApp" class="imgApp" />
-        <img src="iconPink.png" alt="imgApp" class="imgApp" />
-        <img src="iconPink.png" alt="imgApp" class="imgApp" />
+        <a href="https://misamitalone.github.io"> <img src="iconPink.png" alt="imgApp" class="imgApp" /> </a>
+        <a href="https://misamitalone.github.io"> <img src="iconPink.png" alt="imgApp" class="imgApp" /> </a>
+        <a href="https://misamitalone.github.io"> <img src="iconPink.png" alt="imgApp" class="imgApp" /> </a>
+        <a href="https://misamitalone.github.io"> <img src="iconPink.png" alt="imgApp" class="imgApp" /> </a>
       </div>
       
     </div>
@@ -90,6 +96,31 @@
             });
         });
       }
+
+      // Open popup Message modal
+      function openMsg(msgCode) {
+        document.getElementById("popupMsgModal").style.display = "block";
+        document.getElementById("msgCode_HTML").innerHTML = msgCode;
+        setTimeout(closeMsg, 3500);
+      } // Close add party modal
+      function closeMsg() {
+        document.getElementById("popupMsgModal").style.display = "none";
+      }
+
+      // Get all anchor tags
+      var links = document.querySelectorAll("a[href]");
+
+      // Add click event listener to each link
+      links.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          if (navigator.onLine) {
+            // Check if the user is offline
+            event.preventDefault(); // Prevent the default link action
+            let msgCode_HTML = `<label>  You're offline </label> <p> “Please Check Your Internet Connection And Try Again”`;
+            openMsg(msgCode_HTML);
+          }
+        });
+      });
     </script>
   </body>
 </html>
