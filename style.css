@@ -145,7 +145,7 @@ body {
   align-content: center;
   margin: auto;
   padding: 2px;
-  width: 320px;
+  width: 325px;
   height: 200px;
   margin-top: calc(50vh - 104px);
   background-color: var(--primaryColor);
@@ -162,7 +162,7 @@ body {
 
 .modal-Msg p {
   color: var(--darkPink);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
-  padding: 5px 15px;
+  padding: 2px 9px;
 }
