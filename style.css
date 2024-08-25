@@ -76,10 +76,10 @@ body {
 }
 
 .titleLabel {
-  font-size: 20px;
+  font-size: 16px;
   background-color: var(--primaryColor);
   color: var(--textColor);
-  padding: 5px 20px;
+  padding: 4px 15px;
   position: relative;
   top: 20px;
   border: 1px solid var(--white);
