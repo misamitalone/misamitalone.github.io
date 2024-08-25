@@ -8,7 +8,7 @@
   --white: #f1f1f1;
 }
 
-@media only screen and (max-width: 6500px) {
+@media only screen and (max-width: 700px) {
   :root {
     --boxWidth: 100%;
     --grid-col: auto auto auto auto;
