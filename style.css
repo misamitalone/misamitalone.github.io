@@ -1,6 +1,6 @@
 :root {
   --boxWidth: 700px;
-  --grid-col: auto auto auto auto;
+  --grid-col: auto auto auto auto auto;
   --primaryColor: #1f1e1e;
   --secondaryColor: #4d4c4c;
   --textColor: #ffffff;
@@ -11,7 +11,7 @@
 @media only screen and (max-width: 700px) {
   :root {
     --boxWidth: 100%;
-    --grid-col: auto auto auto;
+    --grid-col: auto auto auto auto;
   }
 }
 
