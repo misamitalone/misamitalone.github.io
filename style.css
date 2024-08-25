@@ -130,6 +130,7 @@ a {
   width: var(--boxWidth);
   height: 65px;
   background-color: var(--primaryColor);
+  z-index: 1;
 }
 
 .footer {
