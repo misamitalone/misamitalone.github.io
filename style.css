@@ -2,7 +2,6 @@
 
 :root {
   --boxWidth: 620px;
-  --grid-col: auto auto auto auto;
   --primaryColor: #1f1e1e;
   --secondaryColor: #4d4c4c;
   --textColor: #ffffff;
@@ -13,18 +12,6 @@
 @media only screen and (max-width: 620px) {
   :root {
     --boxWidth: 100%;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  :root {
-    --grid-col: auto auto auto;
-  }
-}
-
-@media only screen and (max-width: 250px) {
-  :root {
-    --grid-col: auto auto;
   }
 }
 
@@ -86,7 +73,6 @@ a {
 
 .imgApp {
   width: 100%;
-  max-width: 99px;
   border-radius: 5px;
   border: 2px solid var(--white);
 }
@@ -117,7 +103,7 @@ a {
   display: grid;
   align-content: center;
   justify-content: space-evenly;
-  grid-template-columns: var(--grid-col);
+  grid-template-columns: repeat(auto-fit, 99px);
   padding: 15px;
   gap: 15px;
   margin: 15px 0px;
