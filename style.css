@@ -12,6 +12,13 @@
 @media only screen and (max-width: 620px) {
   :root {
     --boxWidth: 100%;
+    --grid-width: 99px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  :root {
+    --grid-width: 70px;
   }
 }
 
