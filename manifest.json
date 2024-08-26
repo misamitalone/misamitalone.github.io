@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "lang": "en-US",
   "scope": "/",
-  "start_url": "/index.html",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#1f1e1e",
   "theme_color": "#1f1e1e",
