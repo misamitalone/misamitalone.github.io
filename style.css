@@ -155,7 +155,7 @@ a {
 
 .optionIcon {
   margin-right: 20px;
-  font-size: 23px;
+  font-size: 22px;
   color: var(--textColor);
   font-weight: bold;
   padding: 5px 15px;
@@ -195,16 +195,4 @@ a {
   font-size: 12px;
   font-weight: bold;
   padding: 5px 10px;
-}
-
-.modal-Option {
-  align-content: center;
-  padding: 2px;
-  width: 320px;
-  height: 200px;
-  margin-top: 65px;
-  margin-right: calc(50% + 24px);
-  background-color: var(--primaryColor);
-  color: var(--textColor);
-  border-radius: 15px;
 }
