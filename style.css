@@ -16,7 +16,7 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 420px) {
   :root {
     --grid-width: 70px;
   }
@@ -65,7 +65,7 @@ a {
 }
 
 .title {
-  font-size: 25px;
+  font-size: 24px;
   color: var(--textColor);
   text-shadow: 2px 3px var(--pink);
   font-weight: bold;
