@@ -19,12 +19,6 @@
         <div class="flex flex-col" id="msgCode_HTML"></div>
       </div>
     </div>
-
-    <div id="popupOption" class="modal">
-      <div class="modal-Option">
-        <div class="flex flex-col" id="optionCode_HTML"></div>
-      </div>
-    </div>
     
     <div class="header flex">
       <div class="flex">
@@ -33,7 +27,7 @@
       </div>
       <div class="flex">
         <button id="installButton" hidden>Install App</button>
-        <i class="fa fa-ellipsis-v optionIcon" onclick="openOption('Option')"></i>
+        <i class="fa fa-ellipsis-v optionIcon" onclick="openMsg('Option')"></i>
       </div>
     </div>
     <div class="container">
@@ -109,16 +103,6 @@
       } // Close Message modal
       function closeMsg() {
         document.getElementById("popupMsg").style.display = "none";
-      }
-
-      // Open popup Option modal
-      function openOption(optionCode) {
-        document.getElementById("popupOption").style.display = "block";
-        document.getElementById("optionCode_HTML").innerHTML = optionCode;
-        setTimeout(closeOption, 3500);
-      } // Close Option modal
-      function closeOption() {
-        document.getElementById("popupOption").style.display = "none";
       }
 
       // Get all anchor tags
