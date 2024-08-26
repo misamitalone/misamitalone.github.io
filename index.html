@@ -114,7 +114,7 @@
           if (!navigator.onLine) {
             // Check if the user is offline
             event.preventDefault(); // Prevent the default link action
-            let msgCode_HTML = `<label>  You're offline </label> <p> “Please Check Your Internet Connection And Try Again”`;
+            let msgCode_HTML = `<label>  <i class="fa fa-globe"></i> You're offline </label> <p> “Please Check Your Internet Connection And Try Again”`;
             openMsg(msgCode_HTML);
           }
         });
