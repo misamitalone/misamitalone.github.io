@@ -203,7 +203,7 @@ a {
   width: 320px;
   height: 200px;
   margin-top: 65px;
-  margin-right: 344px; /* 320px + (2+2)px + 20px*/
+  margin-right: calc(50% + 24px);
   background-color: var(--primaryColor);
   color: var(--textColor);
   border-radius: 15px;
