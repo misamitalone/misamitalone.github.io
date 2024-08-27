@@ -41,7 +41,7 @@ body {
 }
 
 .display {
-  min-height: 200px;
+  min-height: 280px;
   padding: 1.5rem;
   display: flex;
   justify-content: flex-end;
