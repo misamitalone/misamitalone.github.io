@@ -6,5 +6,5 @@ ErrorDocument 400 "<center><h1>Error 400</h1></center>"
 ErrorDocument 401 "<center><h1>Error 401</h1></center>"
 ErrorDocument 403 "<center><h1>Error 403</h1></center>"
 #Error 404 redirect home page url
-ErrorDocument 404 https://misamitalone.github.io/ 
+ErrorDocument 404 "<center><h1>Coming Soon!</h1></center>"
 ErrorDocument 500 "<center><h1>Error 500</h1></center>"
