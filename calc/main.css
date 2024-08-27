@@ -26,11 +26,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: var(--boxHeight);
 }
 
 .calculator {
-  background-color: #22252d;
+  background-color: #292d36;
   width: 100%;
   max-width: var(--boxWidth);
   min-height: var(--boxHeight);
