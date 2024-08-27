@@ -2,7 +2,7 @@ const CACHE_NAME = "simple-pwa-cache-v1";
 const urlsToCache = [
   "./",
   "./index.html",
-  "./errorPage.html",
+  "./error.html",
   "./style.css",
   "./manifest.json",
   "./icon144.png",
