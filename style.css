@@ -184,14 +184,12 @@ a {
 }
 
 .modal-Msg label {
-  color: var(--grayBlak);
   font-size: 25px;
   font-weight: bold;
   padding: 5px 10px;
 }
 
 .modal-Msg p {
-  color: var(--darkPink);
   font-size: 12px;
   font-weight: bold;
   padding: 5px 10px;
