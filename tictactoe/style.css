@@ -22,7 +22,7 @@ main {
   width: 360px;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   font-size: 25px;
 }
 #header .player {
@@ -76,7 +76,7 @@ main {
 }
 
 #restartBtn {
-  margin-top: 30px;
+  margin-top: 50px;
   width: 320px;
   background: #17122a;
   padding: 10px 0px;
