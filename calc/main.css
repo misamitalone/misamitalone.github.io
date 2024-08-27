@@ -5,6 +5,16 @@
   font-family: sans-serif;
 }
 
+:root {
+  --boxWidth: 480px;
+}
+
+@media only screen and (max-width: 420px) {
+  :root {
+    --boxWidth: 100%;
+  }
+}
+
 body {
   background-color: #22252d;
   margin: 0;
@@ -20,7 +30,7 @@ body {
 .calculator {
   background-color: #22252d;
   width: 100%;
-  max-width: 375px;
+  max-width: var(--boxWidth);
   min-height: 640px;
   display: flex;
   flex-direction: column;
