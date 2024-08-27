@@ -2,10 +2,13 @@ const CACHE_NAME = "simple-pwa-cache-v1";
 const urlsToCache = [
   "./",
   "./index.html",
+  "./errorPage.html",
   "./style.css",
   "./manifest.json",
   "./icon144.png",
   "./iconPink.png",
+  "./src/khata.png",
+  "./src/coming.png",
 ];
 
 // Install event
