@@ -26,7 +26,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: var(--boxHeight);
+  height: 100vh;
 }
 
 .calculator {
