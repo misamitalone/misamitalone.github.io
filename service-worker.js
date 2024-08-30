@@ -4,12 +4,8 @@ const urlsToCache = [
   "./index.html",
   "./error.html",
   "./style.css",
-  "./manifest.json",
-  "./icon144.png",
   "./iconPink.png",
-  "./src/khata.png",
-  "./tictactoe/icon.png",
-  "./src/coming.png",
+  "./iconD.png",
 ];
 
 // Install event
