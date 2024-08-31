@@ -105,6 +105,7 @@ a {
   width: 144px;
   height: 144px;
   margin-bottom: 10px;
+  border-radius: 50%;
 }
 
 .iconLogo {
