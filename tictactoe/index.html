@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TicTacToe Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0 , user-scalable=no"/>
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+    <meta name="theme-color" content="#0a0519" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <header id="header">
+            <div class="player player-active"
+            id="xPlayerDisplay"
+            onclick="choosePlayer('X')">
+            X
+            </div>
+            <h3 id="titleHeader">Choose</h3>
+            <div class="player"
+            id="oPlayerDisplay"
+            onclick="choosePlayer('O')">
+            O
+            </div>
+        </header>
+
+        <div id="board">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+
+        <button id="restartBtn">
+            Restart
+        </button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

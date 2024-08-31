@@ -1,0 +1,180 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+:root {
+  --boxWidth: 620px;
+  --primaryColor: #1f1e1e;
+  --secondaryColor: #4d4c4c;
+  --textColor: #ffffff;
+  --pink: #ff69b4;
+  --white: #f1f1f1;
+}
+
+@media only screen and (max-width: 620px) {
+  :root {
+    --boxWidth: 100%;
+    --grid-width: 99px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  :root {
+    --grid-width: 70px;
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--primaryColor) 150px,
+    var(--white) 0px
+  );
+  background-attachment: fixed;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-col {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: auto;
+  position: absolute;
+  top: 70px;
+  left: calc(50% - (var(--boxWidth) / 2));
+  width: var(--boxWidth);
+  padding-top: 20px;
+  text-align: center;
+  min-height: calc(100vh - 90px); /* top 70 + padding 20 */
+  background-color: var(--secondaryColor);
+  color: var(--textColor);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.title {
+  font-size: 24px;
+  color: var(--textColor);
+  text-shadow: 2px 3px var(--pink);
+  font-weight: bold;
+}
+
+.imgLogo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 0px 20px;
+}
+
+.imgApp {
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid var(--white);
+}
+
+.imgApp:hover {
+  border: 2px solid var(--pink);
+  cursor: pointer;
+}
+
+.titleLabel {
+  font-size: 12px;
+  background-color: var(--primaryColor);
+  color: var(--textColor);
+  padding: 4px 15px;
+  position: relative;
+  top: 20px;
+  border: 1.5px solid var(--white);
+  border-radius: 15px;
+}
+
+.labelHR {
+  border: 1px solid var(--white);
+  width: calc(100% - 40px);
+  margin-top: 12px;
+}
+
+.appGrid {
+  display: grid;
+  align-content: center;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fit, 99px);
+  gap: 30px 20px;
+  padding: 15px;
+  margin: 15px 0px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: calc(50% - (var(--boxWidth) / 2));
+  width: var(--boxWidth);
+  height: 65px;
+  background-color: var(--primaryColor);
+  z-index: 1;
+}
+
+#installButton {
+  border: 2px var(--pink) solid;
+  border-radius: 8px;
+  padding: 5px 12px;
+  background-color: var(--pink);
+  color: #ffffff;
+  font-weight: bold;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.optionIcon {
+  margin-right: 20px;
+  font-size: 22px;
+  color: var(--textColor);
+  font-weight: bold;
+  padding: 5px 15px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-Msg {
+  align-content: center;
+  margin: auto;
+  padding: 2px;
+  width: 325px;
+  height: 200px;
+  margin-top: calc(50vh - 100px);
+  background-color: var(--primaryColor);
+  color: var(--textColor);
+  border-radius: 15px;
+}
+
+.modal-Msg label {
+  font-size: 25px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.modal-Msg p {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
