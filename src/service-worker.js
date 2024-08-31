@@ -5,7 +5,7 @@ const urlsToCache = [
   "./error.html",
   "./style.css",
   "./iconPink.png",
-  "./iconD.png",
+  "./error.png",
 ];
 
 // Install event
