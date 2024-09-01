@@ -10,6 +10,7 @@
   "theme_color": "#1f1e1e",
   "orientation": "portrait",
   "categories": ["business"],
+  "permissions": ["geolocation", "camera"]
   "description": "This AK PWA Created by Mr. Amit Kumar Alone",
   "icons": [
     {
