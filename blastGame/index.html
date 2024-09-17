@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#778899" />
+    <title>Bubble Blast Game</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #778899;
+      }
+      canvas {
+        background-color: #778899;
+        display: block;
+      }
+      #scoreBoard {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #ffffff;
+        font-size: 24px;
+        display: none;
+        font-weight: bold;
+      }
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+      .blast {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+      #startButton {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        font-size: 20px;
+        background-color: #28a745;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      #stopButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 16px;
+        background-color: #dc3545;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body id="bodyTag">
+    <div id="scoreBoard">Score: 0</div>
+    <canvas id="gameCanvas"></canvas>
+    <button id="startButton">Start Game</button>
+    <button id="stopButton">Stop</button>
+
+    <script>
+      const canvas = document.getElementById("gameCanvas");
+      const ctx = canvas.getContext("2d");
+      const scoreBoard = document.getElementById("scoreBoard");
+      const startButton = document.getElementById("startButton");
+      const stopButton = document.getElementById("stopButton");
+
+      let score = 0;
+      let bubbles = [];
+      let canvasWidth = window.innerWidth;
+      let canvasHeight = window.innerHeight;
+      let animationId;
+      let isGameRunning = false;
+
+      // Resize canvas to fit window
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        canvasWidth = window.innerWidth;
+        canvasHeight = window.innerHeight;
+      }
+      resizeCanvas();
+
+      window.addEventListener("resize", resizeCanvas);
+
+      // Generate random color
+      function getRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      // Create a bubble
+      class Bubble {
+        constructor() {
+          this.radius = Math.random() * 30 + 20;
+          this.x = Math.random() * canvasWidth;
+          this.y = -this.radius;
+          this.speed = Math.random() * 2 + 1;
+          this.color = getRandomColor();
+          this.blast = false;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+          ctx.closePath();
+        }
+
+        update() {
+          this.y += this.speed;
+          this.draw();
+
+          // Reset if bubble moves out of the canvas
+          if (this.y - this.radius > canvasHeight) {
+            this.reset();
+          }
+        }
+
+        reset() {
+          this.radius = Math.random() * 30 + 20;
+          this.x = Math.random() * canvasWidth;
+          this.y = -this.radius;
+          this.speed = Math.random() * 2 + 1;
+          this.color = getRandomColor();
+        }
+
+        // Check if bubble is clicked
+        checkClick(mx, my) {
+          const dist = Math.sqrt((this.x - mx) ** 2 + (this.y - my) ** 2);
+          if (dist < this.radius) {
+            this.blast = true;
+            this.blastEffect();
+            score++;
+            scoreBoard.innerHTML = `Score: ${score}`;
+            this.reset();
+          }
+        }
+
+        blastEffect() {
+          // CSS effect for blast
+          const bubbleEl = document.createElement("div");
+          bubbleEl.classList.add("bubble");
+          bubbleEl.style.width = `${this.radius * 2}px`;
+          bubbleEl.style.height = `${this.radius * 2}px`;
+          bubbleEl.style.backgroundColor = this.color;
+          bubbleEl.style.left = `${this.x - this.radius}px`;
+          bubbleEl.style.top = `${this.y - this.radius}px`;
+          document.body.appendChild(bubbleEl);
+
+          setTimeout(() => {
+            bubbleEl.classList.add("blast");
+            setTimeout(() => {
+              document.body.removeChild(bubbleEl);
+            }, 300);
+          }, 0);
+        }
+      }
+
+      // Add multiple bubbles
+      function addBubbles(num) {
+        for (let i = 0; i < num; i++) {
+          bubbles.push(new Bubble());
+        }
+      }
+
+      // Game loop
+      function gameLoop() {
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+        bubbles.forEach((bubble) => {
+          bubble.update();
+        });
+
+        if (isGameRunning) {
+          animationId = requestAnimationFrame(gameLoop);
+        }
+      }
+
+      // Handle click event on canvas
+      canvas.addEventListener("click", function (e) {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        bubbles.forEach((bubble) => {
+          bubble.checkClick(mouseX, mouseY);
+        });
+      });
+
+      // Start the game
+      function startGame() {
+        isGameRunning = true;
+        scoreBoard.style.display = "block";
+        startButton.style.display = "none";
+        stopButton.style.display = "block";
+        addBubbles(10);
+        gameLoop();
+      }
+
+      // Stop the game
+      function stopGame() {
+        isGameRunning = false;
+        cancelAnimationFrame(animationId);
+        bubbles = [];
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        scoreBoard.style.display = "none";
+        startButton.style.display = "block";
+        stopButton.style.display = "none";
+      }
+
+      startButton.addEventListener("click", startGame);
+      stopButton.addEventListener("click", stopGame);
+    </script>
+  </body>
+</html>
